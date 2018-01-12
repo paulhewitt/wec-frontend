@@ -16,16 +16,16 @@ export const routes: Routes = [
         data: {
             title: 'Home'
         },
-        children: [
-            {
-                path: 'login',
-                loadChildren: '',
-            },
-            {
-                path: 'addComponent',
-                loadChildren: '',
-            },
-        ]
+        // children: [
+        //     {
+        //         path: 'login',
+        //         loadChildren: '',
+        //     },
+        //     {
+        //         path: 'addComponent',
+        //         loadChildren: '',
+        //     },
+        // ]
 
     }
 ];
