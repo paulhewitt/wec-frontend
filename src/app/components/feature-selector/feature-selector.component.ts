@@ -1,4 +1,6 @@
 import { Component, OnInit , NgModule } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Selector } from '../../models/component-selector';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +9,13 @@ import { Component, OnInit , NgModule } from '@angular/core';
 })
 export class FeatureSelectorComponent implements OnInit {
 
-  constructor() { }
+  featureSelector: Selector;
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
+
+  
 
 }
