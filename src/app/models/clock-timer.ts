@@ -5,6 +5,4 @@ export class ClockTimer {
     id: number;
     name: string;
     timer: Timer;
-
-    user: User;
 }
