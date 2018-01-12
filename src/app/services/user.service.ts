@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { User } from '../models/user';
 
@@ -7,7 +8,7 @@ const uri = 'https://wec-backend.herokuapp.com';
 
 @Injectable()
 export class UserService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     getCookie() {
         var name = "userId=";
@@ -30,26 +31,10 @@ export class UserService {
     }
 
     getMe() {
-        if (this.getCookie()) {
-            console.log(this.getCookie())
+        if (this.getCookie() == "") {
+            window.location.href=uri+'/login';
+            return null
         }
-        return this.getCookie()
-        //window.location.href = "http://localhost:3000/login";
+        return this.http.get<User>(uri + '/users/'+this.getCookie());
     }
-
-    // getById(id: number) {
-    //     return this.http.get('/api/users/' + id);
-    // }
-
-    // create(user: User) {
-    //     return this.http.post('/api/users', user);
-    // }
-
-    // update(user: User) {
-    //     return this.http.put('/api/users/' + user.id, user);
-    // }
-
-    // delete(id: number) {
-    //     return this.http.delete('/api/users/' + id);
-    // }
 }

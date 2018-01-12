@@ -11,14 +11,15 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private userService: UserService,
-        private activatedRoute: ActivatedRoute) {
+        private activatedRoute: ActivatedRoute,
+        private router:Router) {
     }
 
     ngOnInit() {
-        console.log('eh')
         this.activatedRoute.queryParams.subscribe((params: Params) => {
             let userId = params['userId'];
             document.cookie = "userId=" + userId;
+            this.router.navigate(['/home'])
         });
     }
 
