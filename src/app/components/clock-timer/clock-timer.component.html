@@ -1,16 +1,29 @@
-<mat-tab-group>
-  <mat-tab label="Timer"></md-tab>
-  <mat-tab label="Clock"></md-tab>
-  <mat-tab label="Task Timer"></md-tab>
-</mat-tab-group>
+<div class="card">
+  <div *ngIf="EmptyState; then NoTimer"> </div>
+  <ng-template #NoTimer>
+    <div class="card-header">
+      <h1>There are no Timers, add one</h1>
+    </div>
+    <div class="card-body">
+      <button (click)="addTimer()" class="btn btn-primary" type="button"> Add Timer</button>
+    </div>
+  </ng-template>
 
-<div *ngif="SetState; then inputTimer"></div>
-<ng-template #inputTimer>
-  Setting the timer
-</ng-template>
+  <div *ngIf="SetState; then inputTimer"></div>
+  <ng-template #inputTimer>
+    <div class="card-header">
+      <input type="text" name="TimerName" ng-model="clockTimer.name" placeholder="Timer Label">
+    </div>
+    <div class="card-body">
+      <input type="text" name="TimerSeconds" ng-model="" placeholder="Seconds">   
+      <button (click)="createTimer()" class="btn btn-primary" type="button">Set</button>   
+    </div>
+  </ng-template>
 
 
-<div *ngif="DisplayState; then DisplayTimer"></div>
-<ng-template #DisplayTimer>
-  Displaying the timer
-</ng-template>
+
+  <div *ngIf="DisplayState; then DisplayTimer"></div>
+  <ng-template #DisplayTimer>
+    Displaying the timer
+  </ng-template>
+</div>

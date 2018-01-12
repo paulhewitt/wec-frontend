@@ -26,8 +26,7 @@ export class ClockTimerComponent implements OnInit {
     this.EmptyState = false;
     this.SetState = true;
     this.DisplayState = false;
-
-    this.clockTimer.timer = new Timer();        
+    this.clockTimer.timer = new Timer();           
   }
 
   createTimer() {

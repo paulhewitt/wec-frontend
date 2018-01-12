@@ -3,29 +3,31 @@ import { Routes, RouterModule } from '@angular/router'
 import { NavigationComponent } from './layouts/navigation/navigation.component';
 import { FeatureSelectorComponent } from './components/feature-selector/feature-selector.component';
 
+// import {} from ''
+
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
     },
     {
-        path: '',
-        component: NavigationComponent,
+        path: 'home',
+        component: FeatureSelectorComponent,
         data: {
             title: 'Home'
         }
-        ,
-        children: [
-            {
-                path: 'select',
-                component: FeatureSelectorComponent,
-                data: {
-                    title: 'Select Features'
-                  },
-                loadChildren: './components/component.module#ComponentModule'
-            },
-        ]
+        // ,
+        // children: [
+        //     {
+        //         path: 'login',
+        //         loadChildren: '',
+        //     },
+        //     {
+        //         path: 'addComponent',
+        //         loadChildren: '',
+        //     },
+        // ]
 
     }
 ];
