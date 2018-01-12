@@ -1,6 +1,4 @@
 <mat-toolbar color="primary">
-	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <a class="navbar-brand">Taskr</a>
   <!-- <form class="form-inline">
     <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -8,8 +6,6 @@
   </form> -->
   <a *ngIf="!user.firstName" style="margin-left:auto" href="https://wec-backend.herokuapp.com/login"><img src="assets/img/google.png" height="50" /></a>
   <div *ngIf="user.firstName" style="margin-left:auto">
-		<div id="name">
      <img src="{{user.image}}"/> {{user.firstName}} {{user.lastName}}
-	 </div>
   </div>
 </mat-toolbar>

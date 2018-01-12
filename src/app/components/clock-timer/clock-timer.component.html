@@ -1,0 +1,16 @@
+<mat-tab-group>
+  <mat-tab label="Timer"></md-tab>
+  <mat-tab label="Clock"></md-tab>
+  <mat-tab label="Task Timer"></md-tab>
+</mat-tab-group>
+
+<div *ngif="SetState; then inputTimer"></div>
+<ng-template #inputTimer>
+  Setting the timer
+</ng-template>
+
+
+<div *ngif="DisplayState; then DisplayTimer"></div>
+<ng-template #DisplayTimer>
+  Displaying the timer
+</ng-template>
