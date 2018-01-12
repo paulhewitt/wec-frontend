@@ -13,6 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { ComponentModule } from './components/components.module';
 import { ClockTimerComponent } from './components/clock-timer/clock-timer.component';
+import { FormsModule } from '@angular/forms';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -27,6 +29,10 @@ const appRoutes: Routes = [
   {
     path: 'timer',
     component: ClockTimerComponent
+  },
+  {
+    path: 'tasklist',
+    component: TaskListComponent
   }
 ];
 
@@ -36,7 +42,8 @@ const appRoutes: Routes = [
     NavigationComponent,
     FeatureSelectorComponent,
     LoginComponent,
-    ClockTimerComponent
+    ClockTimerComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ const appRoutes: Routes = [
     ),
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [
     UserService

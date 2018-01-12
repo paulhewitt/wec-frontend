@@ -1,0 +1,59 @@
+<div *ngIf="EmptyState; then NoTask"> </div>
+<ng-template #NoTask>
+    <div class="animated fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Task List is Empty</strong>
+                </div>
+                <div class="card-body">
+                    <button (click)="addTask()" class="btn btn-sn btn-primary">Add Task</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>
+
+<div *ngIf="SetState; then SetTask"> </div>
+<ng-template #SetTask>
+    <div class="animated fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-header">
+                  
+                </div>
+                <div class="card-body">
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>
+
+<div *ngIf="DisplayState; then DisplayTask"> </div>
+<ng-template #DisplayTask>
+    <div class="animated fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-header">
+      
+                </div>
+                <div class="card-body">
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>
