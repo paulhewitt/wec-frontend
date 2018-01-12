@@ -5,20 +5,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './layouts/navigation/navigation.component';
 import { AppRoutingModule } from './app.routing';
-import { AddComponent } from './components/add-component/add-component.component';
+import { FeatureSelectorComponent } from './components/feature-selector/feature-selector.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddComponent,
-    NavigationComponent
+    NavigationComponent,
+    FeatureSelectorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent]
 })
 export class AppModule { }
