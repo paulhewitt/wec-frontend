@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UserService} from './services/user.service';
+import { NoteService } from './services/note.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -11,6 +12,8 @@ import { FeatureSelectorComponent } from './components/feature-selector/feature-
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from './material.module';
+import { ComponentModule } from './components/components.module';
+import { ClockTimerComponent } from './components/clock-timer/clock-timer.component';
 
 import { NoteComponent } from './components/note/note.component'
 
@@ -23,6 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'timer',
+    component: ClockTimerComponent
   }
 ];
 
@@ -32,7 +39,8 @@ const appRoutes: Routes = [
     NavigationComponent,
     FeatureSelectorComponent,
     LoginComponent,
-    NoteComponent
+    NoteComponent,
+    ClockTimerComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,8 @@ const appRoutes: Routes = [
     MaterialModule
   ],
   providers: [
-    UserService
+    UserService,
+    NoteService
 	 ],
   bootstrap: [
     AppComponent
