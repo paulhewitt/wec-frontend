@@ -20,6 +20,9 @@ import { FeatureSelectorComponent } from './components/feature-selector/feature-
   ],
   providers: [],
   bootstrap: [
-    AppComponent]
+    AppComponent,
+    NavigationComponent,
+    FeatureSelectorComponent
+  ]
 })
 export class AppModule { }

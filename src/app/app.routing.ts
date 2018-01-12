@@ -12,7 +12,7 @@ export const routes: Routes = [
         pathMatch: 'full',
     },
     {
-        path: '',
+        path: 'home',
         component: FeatureSelectorComponent,
         data: {
             title: 'Home'

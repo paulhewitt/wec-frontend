@@ -1,7 +1,7 @@
 import { Component, OnInit , NgModule } from '@angular/core';
 
 @Component({
-  selector: 'app-feature-selector',
+  selector: 'app-root',
   templateUrl: './feature-selector.component.html',
   styleUrls: ['./feature-selector.component.css']
 })
