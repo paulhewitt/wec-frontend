@@ -11,6 +11,7 @@ import { FeatureSelectorComponent } from './components/feature-selector/feature-
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from './material.module';
+import { ClockTimerComponent } from './components/clock-timer/clock-timer.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -21,6 +22,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'timer',
+    component: ClockTimerComponent
   }
 ];
 
@@ -29,7 +34,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavigationComponent,
     FeatureSelectorComponent,
-    LoginComponent
+    LoginComponent,
+    ClockTimerComponent
   ],
   imports: [
     BrowserModule,
