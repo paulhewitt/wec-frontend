@@ -4,19 +4,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AddComponentComponent } from './components/add-component/add-component.component';
-import { NavigationComponentComponent } from './layouts/navigation-component/navigation-component.component';
 import { NavigationComponent } from './layouts/navigation/navigation.component';
+import { AppRoutingModule } from './app.routing';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddComponentComponent,
-    NavigationComponentComponent,
     NavigationComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
