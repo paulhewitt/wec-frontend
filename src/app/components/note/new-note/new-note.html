@@ -1,0 +1,9 @@
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" value="" [(ngModel)]="note.title">
+</mat-form-field>
+
+<mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Body" [(ngModel)]="note.body"></textarea>
+</mat-form-field>
+<button (click)="doClick()">Click</button>

@@ -5,26 +5,30 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from "./user.service";
 import { ClockTimer } from "../models/clock-timer";
 
+const uri = 'https://wec-backend.herokuapp.com/timers';
+
 @Injectable()
-export class NotesService {
-
+export class ClockTimerService {
+    cookie;
     constructor(private http: HttpClient,
-        private userService: UserService) { }
+        private userService: UserService) {
+            this.cookie = this.userService.getCookie();
+         }
 
-    public postTaskList(clockTimer: ClockTimer): Observable<ClockTimer> {
-        return this.http.post<ClockTimer>('http://localhost:3000', clockTimer)
+    public postTimer(clockTimer: ClockTimer): Observable<ClockTimer> {
+        return this.http.post<ClockTimer>(uri+"?userId="+this.cookie, clockTimer)
     }
 
-    public getTaskList(clockTimerId: number): Observable<ClockTimer> {
-        return this.http.get<ClockTimer>('http://localhost:3000')
+    public getTimer(clockTimerId: number): Observable<ClockTimer> {
+        return this.http.get<ClockTimer>(uri+"/"+clockTimerId+"?userId="+this.cookie)
     }
 
-    public putTaskList(clockTimerId: number, clockTimer: ClockTimer) : Observable<ClockTimer> {
-        return this.http.put<ClockTimer>('http://localhost:3000', clockTimer);   
+    public getAllTimers(clockTimerId: number): Observable<ClockTimer[]> {
+        return this.http.get<ClockTimer[]>(uri + "?userId=" + this.cookie)
     }
 
-    public deleteTaskList(clockTimerId: number): Observable<any>  {
-        return this.http.delete<any>('http://localhost:3000')
+    public deleteTimer(clockTimerId: number): Observable<any>  {
+        return this.http.delete<any>(uri + "/" + clockTimerId + "?userId=" + this.cookie)
     }
 
 }

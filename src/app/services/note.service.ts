@@ -24,12 +24,9 @@ export class NoteService {
         return this.http.get<Note>(uri + "/"+noteId+"?userId=" + userId);
     }
 
-    create() {
+    create(body) {
         const userId = this.userService.getCookie();
-        return this.http.post<Note>(uri + "?userId=" + userId, {
-            title: "test",
-            body: "test2"
-        });
+        return this.http.post<Note>(uri + "?userId=" + userId, body);
     }
 
     delete(noteId) {
