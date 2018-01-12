@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from './material.module';
 
+import { NoteComponent } from './components/note/note.component'
+
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
   {
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavigationComponent,
     FeatureSelectorComponent,
-    LoginComponent
+    LoginComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
