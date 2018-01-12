@@ -5,11 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './layouts/navigation/navigation.component';
 import { AppRoutingModule } from './app.routing';
+import { AddComponent } from './components/add-component/add-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddComponent,
     NavigationComponent
   ],
   imports: [
