@@ -16,8 +16,9 @@ import { FeatureSelectorComponent } from './components/feature-selector/feature-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+		MaterialModule
+	 ],
   providers: [],
   bootstrap: [
     AppComponent,
