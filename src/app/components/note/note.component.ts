@@ -10,7 +10,10 @@ import { NoteService } from '../../services/note.service';
 })
 export class NoteComponent implements OnInit {
 
-    note = {}
+    note = {
+        title: '',
+        body: ''
+    }
 
     constructor(private noteService:NoteService) {}
 

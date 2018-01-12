@@ -8,7 +8,11 @@ import { UserService } from '../../services/user.service';
 })
 export class NavigationComponent implements OnInit {
 
-  user = {};
+  user = {
+    firstName: '',
+    lastName: '',
+    image: ''
+  };
 
   constructor(private userService: UserService) { }
 
