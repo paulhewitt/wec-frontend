@@ -6,7 +6,7 @@
         <div *ngIf="EmptyState; then NoTimer"> </div>
         <ng-template #NoTimer>
           <div class="card-header">
-            <strong>There are no Timers, add one</strong>
+            <strong>Add a timer</strong>
           </div>
           <div class="card-body">
             <button (click)="addTimer()" class="btn btn-primary" type="button"> Add Timer</button>
@@ -29,8 +29,8 @@
           <div class="card-header">
             <strong>{{clockTimer.name}}</strong>
           </div>
-          <h3> {{time}}</h3>
-          <div class="card-body">
+          <div class="card-body text-center" >
+            <h3> {{time}}</h3>
             <div *ngIf="StartState; then TimerStopped"></div>
             <ng-template #TimerStopped>
               <button (click)="startTimer()" class="btn btn-primary" type="button">Start</button>

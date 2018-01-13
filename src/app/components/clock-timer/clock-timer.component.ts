@@ -48,10 +48,13 @@ export class ClockTimerComponent implements OnInit {
   }
 
   stopTimer() {
-
+    this.timer.stop();
+    this.time = 0;
+    this.clockTimer.Remainingtime = 0;
     this.StartState = true;
     this.StopState = false;
     this.deleteTimer();
+
   }
 
   startTimer() {
@@ -66,7 +69,7 @@ export class ClockTimerComponent implements OnInit {
     });
 
     this.timer.start(this.clockTimer.Remainingtime)
-      .on('end', function() {
+      .on('end', function () {
         clearInterval(this.tick);
         alert('The timer is completed!');
       })
