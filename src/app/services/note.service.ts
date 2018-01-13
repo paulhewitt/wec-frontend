@@ -19,6 +19,10 @@ export class NoteService {
         return this.http.get<Note[]>(uri+"/mine?userId="+userId);
     }
 
+    share(noteId, userId) {
+        return this.http.get(uri + "/" + noteId + "/" + userId);
+    }
+
     getOne(noteId) {
         const userId = this.userService.getCookie();
         return this.http.get<Note>(uri + "/"+noteId+"?userId=" + userId);

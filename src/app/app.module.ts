@@ -25,6 +25,8 @@ import { TodoComponent } from './components/todo/todo.component'
 import { NewTodoComponent } from './components/todo/new-todo/new-todo.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
+import { CalendarComponent } from './components/calendar/calendar.component';
+
 import { ClockTimerService } from './services/clockTimer.service';
 import { CalendarService } from './services/calendar.service';
 import { TaskListService } from './services/taskList.service';
@@ -50,6 +52,10 @@ const appRoutes: Routes = [
   {
     path: 'todos',
     component: TodoListComponent
+  },
+  {
+    path: 'calendar',
+    component: CalendarComponent
   }
 ];
 
@@ -66,7 +72,8 @@ const appRoutes: Routes = [
     TodoComponent,
     NewTodoComponent,
     TodoListComponent,
-    TaskListComponent
+    TaskListComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
