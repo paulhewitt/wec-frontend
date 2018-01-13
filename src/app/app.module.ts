@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'timer',
+    path: 'timers',
     component: ClockTimerComponent
   },
   {
