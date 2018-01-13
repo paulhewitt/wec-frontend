@@ -1,0 +1,76 @@
+<div *ngIf="EmptyState; then NoTask"> </div>
+<ng-template #NoTask>
+    <div class="animated fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-header">
+                  <strong>Task List</strong>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <h6>No assigned tasks</h6>
+                    <button (click)="addTask()" class="btn btn-sn btn-primary">Add Task</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>
+
+<div *ngIf="SetState; then SetTask"> </div>
+<ng-template #SetTask>
+    <div class="animated fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-header">
+                    <strong>Task List</strong>
+              </div> 
+                <div class="card-body">
+                    <div class="row"> 
+                        <input [(ngModel)]="taskList.name" name="taskname" class="form-control" type="text" id="taskname"
+                          placeholder="TaskName">
+                          <select [(ngModel)]="taskList.priority" class="custom-select" name="priority" placeholder="Priority">
+                              <option selected disabled>Select priority</option>
+                              <option>Low</option>
+                              <option>Medium</option>
+                              <option>High</option>
+                            </select>
+                          <button (click)="addTask()" class="btn btn-primary">Save Task</button>
+                      </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>
+
+<div *ngIf="DisplayState; then DisplayTask"> </div>
+<ng-template #DisplayTask>
+    <div class="animated fadeIn">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-header">
+                    <strong>Task List</strong>
+                </div>
+
+                <div class="card-body">
+                  <div class="row">
+                      <p *ngFor="let t of taskLists">{{ t.name }} {{ t.priority }}</p>
+                      <button (click)="deleteTask()" class="btn btn-sn btn-danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>

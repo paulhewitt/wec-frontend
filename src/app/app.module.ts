@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { UserService} from './services/user.service';
 import { NoteService } from './services/note.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './layouts/navigation/navigation.component';
@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { ClockTimerComponent } from './components/clock-timer/clock-timer.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 import { NoteComponent } from './components/note/note.component'
 import { NewNoteComponent } from './components/note/new-note/new-note.component';
@@ -23,6 +24,10 @@ import { TodoService } from './services/todo.service';
 import { TodoComponent } from './components/todo/todo.component'
 import { NewTodoComponent } from './components/todo/new-todo/new-todo.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+
+import { ClockTimerService } from './services/clockTimer.service';
+import { CalendarService } from './services/calendar.service';
+import { TaskListService } from './services/taskList.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -54,13 +59,14 @@ const appRoutes: Routes = [
     NavigationComponent,
     FeatureSelectorComponent,
     LoginComponent,
-    NoteComponent,
     ClockTimerComponent,
+    NoteComponent,
     NewNoteComponent,
     NoteListComponent,
     TodoComponent,
     NewTodoComponent,
-    TodoListComponent
+    TodoListComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +82,10 @@ const appRoutes: Routes = [
   providers: [
     UserService,
     NoteService,
-    TodoService
+    TodoService,
+    TaskListService,
+    ClockTimerService,
+    CalendarService
 	 ],
   bootstrap: [
     AppComponent

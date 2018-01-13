@@ -6,7 +6,7 @@ import { UserService } from "./user.service";
 import { TaskList } from "../models/task-list";
 
 @Injectable()
-export class NotesService {
+export class TaskListService {
 
     constructor(private http: HttpClient,
         private userService: UserService) { }
