@@ -1,11 +1,16 @@
 <mat-toolbar color="primary">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <a class="navbar-brand">Taskr</a>
+  <a class="navbar-brand" routerLink="home">Taskr</a>
   <!-- <form class="form-inline">
     <input class="form-control mr-sm-2" type="text" placeholder="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form> -->
+  <a mat-button routerLink="home">Dashboard</a>
+  <a mat-button routerLink="notes">Notes</a>
+  <a mat-button routerLink="todos">Todos</a>
+  <a mat-button routerLink="calendar">Calendar</a>
+  <a mat-button routerLink="timers">Timers</a>
   <a *ngIf="user.firstName == ''" style="margin-left:auto" href="https://wec-backend.herokuapp.com/login"><img src="assets/img/google.png" height="50" /></a>
   <div *ngIf="user.firstName != ''" style="margin-left:auto">
 		<div id="name">

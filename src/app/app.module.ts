@@ -17,9 +17,15 @@ import { ClockTimerComponent } from './components/clock-timer/clock-timer.compon
 
 import { NoteComponent } from './components/note/note.component'
 import { NewNoteComponent } from './components/note/new-note/new-note.component';
+import { NoteListComponent } from './components/note-list/note-list.component';
+
+import { TodoService } from './services/todo.service';
+import { TodoComponent } from './components/todo/todo.component'
+import { NewTodoComponent } from './components/todo/new-todo/new-todo.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     component: FeatureSelectorComponent
@@ -31,6 +37,14 @@ const appRoutes: Routes = [
   {
     path: 'timer',
     component: ClockTimerComponent
+  },
+  {
+    path: 'notes',
+    component: NoteListComponent
+  },
+  {
+    path: 'todos',
+    component: TodoListComponent
   }
 ];
 
@@ -42,7 +56,11 @@ const appRoutes: Routes = [
     LoginComponent,
     NoteComponent,
     ClockTimerComponent,
-    NewNoteComponent
+    NewNoteComponent,
+    NoteListComponent,
+    TodoComponent,
+    NewTodoComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +75,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     UserService,
-    NoteService
+    NoteService,
+    TodoService
 	 ],
   bootstrap: [
     AppComponent

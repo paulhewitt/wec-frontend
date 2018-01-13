@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { NoteService } from '../../../services/note.service';
+import { Note } from '../../../models/note'
 
 
 @Component({
@@ -10,6 +11,7 @@ import { NoteService } from '../../../services/note.service';
 })
 export class NewNoteComponent {
 
+    @Output() onAddNote = new EventEmitter<Note>();
     note = {
         title: "",
         body: ""
@@ -17,9 +19,9 @@ export class NewNoteComponent {
 
     constructor(private noteService: NoteService) { }
 
-    doClick() {
+    addNote() {
         this.noteService.create(this.note).subscribe(res => {
-            console.log(res)
+            this.onAddNote.emit(res);
         });
     }
 }

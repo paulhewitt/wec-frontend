@@ -9,3 +9,8 @@
 	font-size: 20px;
 	color: white;
 }
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}

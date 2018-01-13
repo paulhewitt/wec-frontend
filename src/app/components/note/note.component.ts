@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { NoteService } from '../../services/note.service';
+import { Note } from '../../models/note';
 
 
 @Component({
@@ -10,16 +11,15 @@ import { NoteService } from '../../services/note.service';
 })
 export class NoteComponent implements OnInit {
 
-    note = {
-        title: '',
-        body: ''
-    }
+    @Input() note: Note;
+    @Output() onDeleteSelf = new EventEmitter<Number>();
 
     constructor(private noteService:NoteService) {}
 
     ngOnInit() {
-        this.noteService.getMine().subscribe(res => {
-            this.note = res[0]
-        });
+    }
+
+    deleteSelf() {
+        this.onDeleteSelf.emit(this.note._id);
     }
 }
