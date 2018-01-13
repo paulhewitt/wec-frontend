@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input, NgModule } from '@angular/core';
 import { ClockTimer } from '../../models/clock-timer';
-import { Timer } from 'timer.js'
+import * as Timer from 'timer.js'
 
 @Component({
   selector: 'app-clock-timer',
@@ -37,6 +37,8 @@ export class ClockTimerComponent implements OnInit {
     this.DisplayState = true;
 
     console.log(this.clockTimer.name);
+    this.time = this.clockTimer.Remainingtime;
+
   }
 
   deleteTimer() {
@@ -46,33 +48,27 @@ export class ClockTimerComponent implements OnInit {
   }
 
   stopTimer() {
-    // this.timer.Pause();
 
     this.StartState = true;
     this.StopState = false;
+    this.deleteTimer();
   }
 
   startTimer() {
-
     this.StartState = false;
     this.StopState = true;
 
-    // var timer = new Timer({
-    //   tick: 1,
-    //   ontick: function (sec) {
-    //     console.log('interval', sec);
-    //   },
-    //   onstart: function () {
-    //     console.log('timer started');
-    //   }
-    // });
+    var timer = new Timer({
+      tick: 1,
+      ontick: function (ms) {
+        this.time = (ms / 1000);
+      }
+    });
 
-    // timer.start(this.clockTimer.Remainingtime)
-    // .on('end', function () {
-    //   alert('Timer ' + this.clockTimer.name + ' has ended!');
-    // }).on('tick', function (sec) {
-    //   console.log(sec);
-    // });
+    timer.start(this.clockTimer.Remainingtime)
+      .on('end', function () {
+        alert('Timer has ended!');
+      })
   }
 
 }
