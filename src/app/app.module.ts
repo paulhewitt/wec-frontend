@@ -14,7 +14,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { ClockTimerComponent } from './components/clock-timer/clock-timer.component';
-import { FormsModule } from '@angular/forms';
 import { TaskListComponent } from './components/task-list/task-list.component';
 
 import { NoteComponent } from './components/note/note.component'
@@ -48,7 +47,7 @@ const appRoutes: Routes = [
     LoginComponent,
     NoteComponent,
     ClockTimerComponent,
-    TaskListComponent
+    TaskListComponent,
     NewNoteComponent
   ],
   imports: [
