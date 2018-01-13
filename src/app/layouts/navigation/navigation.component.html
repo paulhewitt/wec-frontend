@@ -6,8 +6,8 @@
     <input class="form-control mr-sm-2" type="text" placeholder="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form> -->
-  <a *ngIf="!user.firstName" style="margin-left:auto" href="https://wec-backend.herokuapp.com/login"><img src="assets/img/google.png" height="50" /></a>
-  <div *ngIf="user.firstName" style="margin-left:auto">
+  <a *ngIf="user.firstName == ''" style="margin-left:auto" href="https://wec-backend.herokuapp.com/login"><img src="assets/img/google.png" height="50" /></a>
+  <div *ngIf="user.firstName != ''" style="margin-left:auto">
 		<div id="name">
      <img src="{{user.image}}"/> {{user.firstName}} {{user.lastName}}
 	 </div>
