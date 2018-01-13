@@ -27,7 +27,6 @@
         <div *ngIf="DisplayState; then DisplayTimer"></div>
         <ng-template #DisplayTimer>
           <a> {{clockTimer.name}}</a>
-          <br>
           <a> {{time}}</a>
 
           <div *ngIf="StartState; then TimerStopped"></div>
