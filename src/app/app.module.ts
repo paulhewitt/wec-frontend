@@ -5,7 +5,6 @@ import { UserService} from './services/user.service';
 import { NoteService } from './services/note.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './layouts/navigation/navigation.component';
