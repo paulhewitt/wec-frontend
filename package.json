@@ -30,7 +30,8 @@
     "timer.js": "^1.0.4",
     "zone.js": "^0.8.19",
     "@angular/cli": "1.6.4",
-    "@angular/compiler-cli": "^5.1.0"
+    "@angular/compiler-cli": "^5.1.0",
+		"typescript": "~2.5.3"
   },
   "devDependencies": {
     "@angular/language-service": "^5.1.0",
@@ -50,8 +51,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
-  },
+},
   "engines": {
     "node": "6.10.0",
     "npm": "5.6.0"
