@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { UserService} from './services/user.service';
 import { NoteService } from './services/note.service';
 import { HttpClientModule } from '@angular/common/http';

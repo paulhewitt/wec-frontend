@@ -1,29 +1,48 @@
-<div class="card">
-  <div *ngIf="EmptyState; then NoTimer"> </div>
-  <ng-template #NoTimer>
-    <div class="card-header">
-      <h1>There are no Timers, add one</h1>
-    </div>
-    <div class="card-body">
-      <button (click)="addTimer()" class="btn btn-primary" type="button"> Add Timer</button>
-    </div>
-  </ng-template>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
 
-  <div *ngIf="SetState; then inputTimer"></div>
-  <ng-template #inputTimer>
-    <div class="card-header">
-      <input type="text" name="TimerName" ng-model="clockTimer.name" placeholder="Timer Label">
+        <div *ngIf="EmptyState; then NoTimer"> </div>
+        <ng-template #NoTimer>
+          <div class="card-header">
+            <strong>There are no Timers, add one</strong>
+          </div>
+          <div class="card-body">
+            <button (click)="addTimer()" class="btn btn-primary" type="button"> Add Timer</button>
+          </div>
+        </ng-template>
+
+        <div *ngIf="SetState; then inputTimer"></div>
+        <ng-template #inputTimer>
+          <div class="card-header">
+            <input class="form-control" type="text" name="TimerName" [(ngModel)]="clockTimer.name" placeholder="Timer Label">
+          </div>
+          <div class="card-body">
+            <input class="form-control" type="number" name="TimerSeconds" [(ngModel)]="clockTimer.Remainingtime" placeholder="Seconds">
+            <button (click)="createTimer()" class="btn btn-primary" type="button">Set</button>
+          </div>
+        </ng-template>
+
+        <div *ngIf="DisplayState; then DisplayTimer"></div>
+        <ng-template #DisplayTimer>
+          <a> {{clockTimer.name}}</a>
+          <br>
+          <a> {{time}}</a>
+
+          <div *ngIf="StartState; then TimerStopped"></div>
+          <ng-template #TimerStopped>
+            <button (click)="startTimer()" class="btn btn-primary" type="button">Start</button>
+          </ng-template>
+
+          <div *ngIf="StopState; then TimerStarted"></div>
+          <ng-template #TimerStarted>
+            <button (click)="stopTimer()" class="btn btn-danger" type="button">Stop</button>
+          </ng-template>
+
+        </ng-template>
+
+      </div>
     </div>
-    <div class="card-body">
-      <input type="text" name="TimerSeconds" ng-model="" placeholder="Seconds">   
-      <button (click)="createTimer()" class="btn btn-primary" type="button">Set</button>   
-    </div>
-  </ng-template>
-
-
-
-  <div *ngIf="DisplayState; then DisplayTimer"></div>
-  <ng-template #DisplayTimer>
-    Displaying the timer
-  </ng-template>
+  </div>
 </div>
