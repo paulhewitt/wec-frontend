@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { TaskList } from '../../models/task-list';
+import { TaskListService } from '../../services/taskList.service';
 
 @Component({
   selector: 'app-task-list',
@@ -12,17 +13,23 @@ export class TaskListComponent implements OnInit {
   SetState: boolean = false;
   EmptyState: boolean = true;
 
-  taskList: TaskList[];
+  taskList: TaskList;
 
-  constructor() { }
+  constructor(private taskListService: TaskListService) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+
   }
 
   addTask() {
     this.EmptyState = false;
     this.SetState = true;
-    this.DisplayState = false;        
+    this.DisplayState = false;  
+    
+    this.taskList = new TaskList();
   }
 
   createTask() {
@@ -30,21 +37,19 @@ export class TaskListComponent implements OnInit {
     this.SetState = false;
     this.DisplayState = true;
 
-    
+    this.taskListService.postTaskList(this.taskList).subscribe(result => {
+      this.taskList = result;
+    }
+    )
   }
 
-  deleteTask() {
+  deleteTask(taskListId) {
     this.EmptyState = true;
     this.SetState = false;
     this.DisplayState = false;
-  }
 
-  // deleteFrequency(frequencyId) {
-  //   this.registrationTypeService.deleteFrequency(this.locationId, this.tenantId, this.registrationTypeId, frequencyId).subscribe(result => {
-  //     this.ngOnChanges();
-  //   },
-  //     (error: Response) => {
-  //       this.errorModal.openWithError(error);
-  //     });
-  // }
+    this.taskListService.deleteTaskList(taskListId).subscribe(result => {
+      this.taskList = result;
+    })
+  }
 }

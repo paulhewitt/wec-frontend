@@ -6,7 +6,7 @@ import { UserService } from "./user.service";
 import { ClockTimer } from "../models/clock-timer";
 
 @Injectable()
-export class NotesService {
+export class ClockTimerService {
 
     constructor(private http: HttpClient,
         private userService: UserService) { }
