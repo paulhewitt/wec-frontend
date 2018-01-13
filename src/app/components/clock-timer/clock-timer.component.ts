@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, NgModule } from '@angular/core';
 import { ClockTimer } from '../../models/clock-timer';
 import * as Timer from 'timer.js'
-import { setInterval } from 'timers';
+//import { setInterval } from 'timers';
 
 @Component({
   selector: 'app-clock-timer',
@@ -61,13 +61,14 @@ export class ClockTimerComponent implements OnInit {
     this.timer = new Timer({
       tick: 1,
       ontick: (ms) => {
-        this.time = (ms / 1000);
+        this.time = Math.round(ms / 1000);
       }
     });
 
     this.timer.start(this.clockTimer.Remainingtime)
       .on('end', function() {
         clearInterval(this.tick);
+        alert('The timer is completed!');
       })
   }
 

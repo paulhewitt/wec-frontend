@@ -26,19 +26,21 @@
 
         <div *ngIf="DisplayState; then DisplayTimer"></div>
         <ng-template #DisplayTimer>
-          <a> {{clockTimer.name}}</a>
-          <a> {{time}}</a>
+          <div class="card-header">
+            <strong>{{clockTimer.name}}</strong>
+          </div>
+          <h3> {{time}}</h3>
+          <div class="card-body">
+            <div *ngIf="StartState; then TimerStopped"></div>
+            <ng-template #TimerStopped>
+              <button (click)="startTimer()" class="btn btn-primary" type="button">Start</button>
+            </ng-template>
 
-          <div *ngIf="StartState; then TimerStopped"></div>
-          <ng-template #TimerStopped>
-            <button (click)="startTimer()" class="btn btn-primary" type="button">Start</button>
-          </ng-template>
-
-          <div *ngIf="StopState; then TimerStarted"></div>
-          <ng-template #TimerStarted>
-            <button (click)="stopTimer()" class="btn btn-danger" type="button">Stop</button>
-          </ng-template>
-
+            <div *ngIf="StopState; then TimerStarted"></div>
+            <ng-template #TimerStarted>
+              <button (click)="stopTimer()" class="btn btn-danger" type="button">Stop</button>
+            </ng-template>
+          </div>
         </ng-template>
 
       </div>
